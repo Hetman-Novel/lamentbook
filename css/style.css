@@ -610,6 +610,8 @@ html.est #lang-button-est {
 .header__buttons {
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .header__buttons button {
@@ -622,6 +624,10 @@ html.est #lang-button-est {
   padding-left: 8px;
   padding-right: 8px;
   width: 92px;
+}
+
+.front-page {
+  min-height: 780px;
 }
 
 .front-page__blockLogos .wrap-text {
@@ -637,12 +643,22 @@ html.est #lang-button-est {
 
 .front-page__blockLogos .header__blockLogo {
   background-color: #fff;
-  border-bottom-right-radius: 32px;
-  border-top-right-radius: 32px;
   display: inline-flex;
-  margin-left: -25px;
-  padding: 22px 30px 8px 79px;
-  width: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.front-page__blockLogos .header__blockLogo::before {
+  background-color: #fff;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  transform: translateX(-98%);
+  top: 0;
+  width: 50vw;
 }
 
 .front-page__blockLogos .header__blockLogo a {
@@ -674,6 +690,39 @@ html.est #lang-button-est {
 .front-page__blockLogos .header__blockLogo img {
   max-height: 100%;
   max-width: 100%;
+}
+
+.front-page__wrap-name {
+  position: relative;
+  z-index: 0;
+}
+
+.front-page__wrap-name-bg,
+.front-page__wrap-name a {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}
+
+.front-page__wrap-name-bg {
+  height: 858px;
+  transform: translate(-50%, -25%);
+}
+
+.front-page__wrap-name a {
+  height: 358px;
+  transform: translate(-50%, 5px);
+}
+
+.front-page__wrap-name a:hover img {
+  opacity: 1;
+}
+
+.front-page__wrap-name a img {
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 0;
+  transition: 0.2s;
 }
 
 .book-page {
@@ -1083,7 +1132,6 @@ body.page .main {
 }
 
 .about-project__block .swiper-slide.slide-second .about-project-slider__column-left {
-  align-items: space-between;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1099,7 +1147,6 @@ body.page .main {
 }
 
 .about-project__block .swiper-slide.slide-three .about-project-slider__column-left {
-  align-items: space-between;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1116,7 +1163,6 @@ body.page .main {
 }
 
 .about-project__block .swiper-slide.slide-four .about-project-slider__column-left {
-  align-items: space-between;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1128,7 +1174,6 @@ body.page .main {
 }
 
 .about-project__block .swiper-slide.slide-five .about-project-slider__column-left {
-  align-items: space-between;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1364,6 +1409,16 @@ footer p {
 
 /* Plyr video player */
 
+@media screen and (min-width: 481px) {
+  .front-page__blockLogos .header__blockLogo {
+    border-bottom-right-radius: 32px;
+    border-top-right-radius: 32px;
+    margin-left: -25px;
+    padding: 22px 30px 8px 79px;
+    width: auto;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .menu__icon {
     display: none;
@@ -1391,17 +1446,42 @@ footer p {
 }
 
 @media screen and (min-width: 1281px) {
-  .header__buttons {
-    position: relative;
-    z-index: 1;
-  }
-
   .front-page__blockLogos {
     margin-top: -52px;
   }
 }
 
+@media screen and (max-width: 1280.98px) {
+  .front-page {
+    min-height: 822px;
+  }
+}
+
 @media screen and (max-width: 1024.98px) {
+  .header__buttons button {
+    margin: 0 12px;
+  }
+
+  .front-page {
+    min-height: 600px;
+  }
+
+  .front-page__blockLogos .header__blockLogo {
+    padding-right: 80px;
+  }
+
+  .front-page__wrap-name-bg {
+    height: 500px;
+    transform: translate(-50%, -19%);
+    min-width: 353px;
+  }
+
+  .front-page__wrap-name a {
+    height: 208px;
+    min-width: 145px;
+    transform: translate(-50%, 35px);
+  }
+
   .header-top-panel__navigation ul li {
     margin: 5px 18px;
   }
@@ -1593,6 +1673,21 @@ footer p {
 }
 
 @media screen and (max-width: 575.98px) {
+  html .wrapper {
+    overflow: hidden;
+  }
+
+  .header .n_container {
+    height: 60px;
+  }
+
+  .header__buttons button {
+    font-size: 14px;
+    height: 26px;
+    margin: 0 5px;
+    width: 55px;
+  }
+
   body.page h1 {
     font-size: 38px;
   }
@@ -1655,6 +1750,51 @@ footer p {
 }
 
 @media screen and (max-width: 480.98px) {
+  .front-page {
+    min-height: 520px;
+  }
+
+  .front-page__blockLogos .wrap-text {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .front-page__blockLogos .wrap-text br {
+    display: none;
+  }
+
+  .front-page__blockLogos .header__blockLogo {
+    justify-content: center;
+    padding: 18px 0 5px 0;
+    width: calc(100% + 15px);
+  }
+
+  .front-page__blockLogos .header__blockLogo .wrap-image {
+    height: 38px;
+    width: 70px;
+  }
+
+  .front-page__blockLogos .header__blockLogo .wrap-image-2 {
+    margin: -10px 20px 0 0;
+    width: 62px;
+  }
+
+  .front-page__blockLogos .header__blockLogo .wrap-image-2 p {
+    font-size: 11px;
+  }
+
+  .front-page__wrap-name-bg {
+    height: 400px;
+    transform: translate(-50%, -20%);
+    min-width: 282px;
+  }
+
+  .front-page__wrap-name a {
+    height: 164px;
+    min-width: 85px;
+    transform: translate(-50%, 25px);
+  }
+
   .gallery-photos .swiper-slide {
     padding-bottom: 18.2%;
   }
