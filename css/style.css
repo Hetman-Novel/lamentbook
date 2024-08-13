@@ -509,6 +509,59 @@ a {
 
 /* Header */
 
+.menu__icon {
+  display: block;
+  height: 18px;
+  position: relative;
+  width: 24px;
+  z-index: 6;
+}
+
+.menu__icon span,
+.menu__icon::before,
+.menu__icon::after {
+  background-color: #fff;
+  border-radius: 6px;
+  left: 0;
+  height: 2px;
+  position: absolute;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.menu__icon::before,
+.menu__icon::after {
+  content: "";
+}
+
+.menu__icon::before {
+  top: 0;
+}
+
+.menu__icon::after {
+  bottom: 0;
+}
+
+.menu__icon span {
+  font-size: 0;
+  transform: scale(1) translate(0, -50%);
+  top: 50%;
+}
+
+.menu__icon._active span {
+  transform: scale(0) translate(0, -50%);
+}
+
+.menu__icon._active::before {
+  transform: rotate(-45deg) translate(0, -70%);
+  top: 50%;
+}
+
+.menu__icon._active::after {
+  bottom: 50%;
+  transform: rotate(45deg) translate(0, 70%);
+}
+
 /* Page - Home */
 
 html.ukr .header__blockLogo .wrap-text p.ukr,
@@ -832,7 +885,6 @@ body.page .main {
 
 .header-top-panel__navigation ul {
   display: flex;
-  flex-wrap: wrap;
   margin-left: 0;
   padding-left: 0;
 }
@@ -1313,6 +1365,14 @@ footer p {
 /* Plyr video player */
 
 @media screen and (min-width: 768px) {
+  .menu__icon {
+    display: none;
+  }
+
+  .header-top-panel__navigation ul {
+    flex-wrap: wrap;
+  }
+
   .about-project__block .swiper-slide.slide-four .about-project-slider__column-left img {
     transform: translateX(10%);
     width: 80%;
@@ -1361,6 +1421,40 @@ footer p {
 }
 
 @media screen and (max-width: 767.98px) {
+  .header-top-panel__navigation {
+    background-color: #504027;
+    bottom: 0;
+    height: 100dvh;
+    left: 0;
+    display: flex;
+    position: fixed;
+    right: 0;
+    transition: opacity 0.3s;
+    top: 0;
+    width: 100vw;
+    z-index: 5;
+  }
+
+  .header-top-panel__navigation:not(.show-menu) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .header-top-panel__navigation ul {
+    flex-direction: column;
+    max-height: 100%;
+    overflow-y: auto;
+    margin: auto;
+    padding: 20px 50px;
+    width: 100%;
+  }
+
+  .header-top-panel__navigation ul li {
+    font-size: 21px;
+    margin: 12px 0;
+    text-align: center;
+  }
+
   .about-project__block .swiper-slide h2 {
     margin-bottom: 15px;
   }
@@ -1488,6 +1582,10 @@ footer p {
 }
 
 @media screen and (max-width: 575.98px) {
+  .wrapper {
+    min-height: calc(100vh - 40px - 60px);
+  }
+
   body.page h1 {
     font-size: 38px;
   }
@@ -1505,10 +1603,6 @@ footer p {
   .header-top-panel__logo a {
     font-size: 18px;
     padding-right: 20px;
-  }
-
-  .header-top-panel__navigation ul li {
-    margin: 5px 10px;
   }
 
   .gallery-photo .swiper-button-prev,
@@ -1562,12 +1656,6 @@ footer p {
 @media screen and (max-width: 372.98px) {
   .gallery-photos .swiper-slide {
     padding-bottom: 22.5%;
-  }
-}
-
-@media screen and (max-width: 360.98px) {
-  .header-top-panel__navigation ul li {
-    margin: 5px;
   }
 }
 
