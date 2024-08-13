@@ -564,116 +564,116 @@ a {
 
 /* Page - Home */
 
-html.ukr .header__blockLogo .wrap-text p.ukr,
-html.ukr .home-block-title a.ukr {
-  display: block;
-}
-
-html.ukr #lang-button-ukr {
-  text-decoration: underline;
-}
-
+html.ukr .front-page__blockLogos .header__blockLogo .wrap-image-2 p.ukr,
+html.ukr .front-page__blockLogos .wrap-text p.ukr,
+html.ukr .header__blockLogo a.ukr,
 html.ukr #ukr-slider {
   display: block;
 }
 
-html.est .header__blockLogo .wrap-text p.est,
-html.est .home-block-title a.est {
-  display: block;
+html.ukr #lang-button-ukr {
+  background-color: #F2D5A0;
 }
 
-html.est #eng-slider,
-html.est #lang-button-est {
-  text-decoration: underline;
-}
-
-html.est #est-slider {
-  display: block;
-}
-
-html.eng .header__blockLogo .wrap-text p.eng,
-html.eng .home-block-title a.eng {
+html.eng .front-page__blockLogos .header__blockLogo .wrap-image-2 p.eng,
+html.eng .front-page__blockLogos .wrap-text p.eng,
+html.eng .header__blockLogo a.eng,
+html.eng #eng-slider {
   display: block;
 }
 
 html.eng #lang-button-eng {
-  text-decoration: underline;
+  background-color: #F2D5A0;
 }
 
-html.eng #eng-slider {
+html.est .front-page__blockLogos .header__blockLogo .wrap-image-2 p.est,
+html.est .front-page__blockLogos .wrap-text p.est,
+html.est .header__blockLogo a.ukr,
+html.est #est-slider {
   display: block;
+}
+
+html.est #lang-button-est {
+  background-color: #F2D5A0;
 }
 
 .n_container {
   width: 100%;
 }
 
-.header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  height: 90px;
-}
-
 .header .n_container {
   align-items: center;
   display: flex;
-  justify-content: space-between;
-}
-
-.header__blockLogo {
-  align-items: center;
-  display: flex;
-  margin-right: auto;
-}
-
-.header__blockLogo .wrap-image {
-  height: 40px;
-  width: 54px;
-}
-
-.header__blockLogo .wrap-image img {
-  max-height: 100%;
-  max-width: 100%;
-}
-
-.header__blockLogo .wrap-text {
-  padding-left: 15px;
-}
-
-.header__blockLogo .wrap-text p {
-  display: none;
-  font-size: 21px;
-  line-height: normal;
+  height: 84px;
 }
 
 .header__buttons {
-  padding-left: 35px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header__buttons button {
-  color: inherit;
+  background-color: #fff;
+  border-radius: 40px;
+  color: #000;
+  height: 32px;
+  font-weight: 500;
+  margin: 0 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 92px;
 }
 
-.header__buttons button:not(:first-child) {
-  margin-left: 14px;
+.front-page__blockLogos .wrap-text {
+  margin-bottom: 14px;
+  padding-left: 53px;
 }
 
-.front-page {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.home-block-title h1 {
-  font-size: 50px;
-  margin-top: -90px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.home-block-title h1 a {
+.front-page__blockLogos .wrap-text p {
+  color: #fff;
   display: none;
+  line-height: 21px;
+}
+
+.front-page__blockLogos .header__blockLogo {
+  background-color: #fff;
+  border-bottom-right-radius: 32px;
+  border-top-right-radius: 32px;
+  display: inline-flex;
+  margin-left: -25px;
+  padding: 22px 30px 8px 79px;
+  width: auto;
+}
+
+.front-page__blockLogos .header__blockLogo a {
+  display: none;
+}
+
+.front-page__blockLogos .header__blockLogo .wrap-image {
+  height: 58px;
+  width: 90px;
+}
+
+.front-page__blockLogos .header__blockLogo .wrap-image-2 {
+  margin: -10px 34px 0 0;
+  width: 76px;
+}
+
+.front-page__blockLogos .header__blockLogo .wrap-image-2 p {
+  color: #003898;
+  display: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  line-height: 14px;
+  font-weight: 700;
+  margin-top: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.front-page__blockLogos .header__blockLogo img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .book-page {
@@ -1390,6 +1390,17 @@ footer p {
   }
 }
 
+@media screen and (min-width: 1281px) {
+  .header__buttons {
+    position: relative;
+    z-index: 1;
+  }
+
+  .front-page__blockLogos {
+    margin-top: -52px;
+  }
+}
+
 @media screen and (max-width: 1024.98px) {
   .header-top-panel__navigation ul li {
     margin: 5px 18px;
@@ -1656,6 +1667,14 @@ footer p {
 }
 
 @media (any-hover: hover) {
+  .header__buttons button {
+    transition: background-color 0.3s;
+  }
+
+  .header__buttons button:hover {
+    background-color: #F2D5A0;
+  }
+
   .header-top-panel__logo a,
   .header-top-panel__navigation ul li a {
     transition: 0.3s;
