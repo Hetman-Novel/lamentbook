@@ -800,8 +800,14 @@ html.est #lang-button-est {
   flex-direction: column;
   position: absolute;
   right: 28px;
+  transition: opacity 0.3s;
   top: 15px;
-  z-index: 5;
+  z-index: 3;
+}
+
+.book-page__buttons.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .book-page .n_container {
@@ -1300,15 +1306,15 @@ footer p {
   margin-left: auto;
   margin-right: auto;
   max-width: 1160px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 85px;
+  padding-right: 85px;
   position: relative;
 }
 
 .authors-page__link-to-page {
   height: 39px;
   position: absolute;
-  right: -17px;
+  right: 25px;
   transform: translateY(-50%);
   top: 50%;
   width: 39px;
@@ -1612,9 +1618,15 @@ footer p {
     right: -38px;
   }
 
+  .authors-page__content {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
   .authors-page__link-to-page {
     height: 26px;
     flex: 0 0 26px;
+    right: 6px;
     width: 26px;
   }
 }
