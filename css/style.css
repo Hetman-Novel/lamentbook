@@ -790,6 +790,15 @@ html.est #lang-button-est {
   width: 100%;
 }
 
+.book-page {
+  margin-bottom: -20px;
+  transition: opacity 0.3s;
+}
+
+.book-page.hidden {
+  opacity: 0;
+}
+
 .book-page .wrapper {
   justify-content: center;
 }
@@ -822,11 +831,12 @@ html.est #lang-button-est {
 
 .book-page .swiper-slide {
   opacity: 0 !important;
+  pointer-events: none !important;
   position: relative;
-  cursor: grab;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   overflow-x: scroll;
@@ -842,6 +852,7 @@ html.est #lang-button-est {
 
 .book-page .swiper-slide.swiper-slide-active {
   opacity: 1 !important;
+  pointer-events: all !important;
 }
 
 .book-page .swiper-slide:not(.zoomed) {
@@ -850,6 +861,10 @@ html.est #lang-button-est {
 
 .book-page .swiper-slide:not(.zoomed) img {
   pointer-events: none;
+}
+
+.book-page .swiper-slide .zoomed {
+  cursor: grab;
 }
 
 .book-page .swiper-slide img {
@@ -864,6 +879,68 @@ html.est #lang-button-est {
 
 .book-page .swiper-slide img:active {
   cursor: grabbing;
+}
+
+.book-page .swiper-slide .wrap-bookmark {
+  cursor: default;
+  max-width: 22%;
+  pointer-events: all;
+  position: absolute;
+  width: 120px;
+  z-index: 3;
+}
+
+.book-page .swiper-slide .wrap-bookmark.left {
+  left: 0;
+  top: 8px;
+}
+
+.book-page .swiper-slide .wrap-bookmark.left .remove-bookmark {
+  left: 8px;
+  right: auto;
+}
+
+.book-page .swiper-slide .wrap-bookmark.left img {
+  display: table;
+  margin: 0 auto auto 0;
+}
+
+.book-page .swiper-slide .wrap-bookmark.right {
+  right: 8px;
+  top: 8px;
+}
+
+.book-page .swiper-slide .wrap-bookmark.right .remove-bookmark {
+  left: auto;
+  right: 0;
+}
+
+.book-page .swiper-slide .wrap-bookmark.right img {
+  display: table;
+  margin: 0 0 auto auto;
+}
+
+.book-page .swiper-slide .wrap-bookmark .remove-bookmark {
+  border-radius: 50%;
+  height: 28px;
+  overflow: hidden;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  width: 28px;
+  z-index: 2;
+}
+
+.book-page .swiper-slide .wrap-bookmark .remove-bookmark img {
+  margin: 0;
+}
+
+.book-page .swiper-slide .wrap-bookmark img {
+  max-height: auto !important;
+  height: auto !important;
+  transition: transform 0.3s;
+  width: 100% !important;
+  z-index: 4;
 }
 
 .book-page .swiper-button-prev,
@@ -1398,6 +1475,14 @@ footer p {
   max-width: 100%;
 }
 
+.main.about-project {
+  transition: opacity 0.3s;
+}
+
+.main.about-project.hidden {
+  opacity: 0;
+}
+
 /* Footer */
 
 /* Plyr video player */
@@ -1430,6 +1515,12 @@ footer p {
   .about-project__block .swiper-slide.slide-four .about-project-slider__column-left img {
     transform: translateX(10%);
     width: 80%;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .book-page {
+    margin-bottom: -40px;
   }
 }
 
@@ -1756,6 +1847,20 @@ footer p {
     height: 26px;
     margin: 0 5px;
     width: 55px;
+  }
+
+  .book-page .swiper-slide .wrap-bookmark.left {
+    top: 0;
+  }
+
+  .book-page .swiper-slide .wrap-bookmark.right {
+    right: 3px;
+    top: 3px;
+  }
+
+  .book-page .swiper-slide .wrap-bookmark .remove-bookmark {
+    height: 22px;
+    width: 22px;
   }
 
   body.page h1 {

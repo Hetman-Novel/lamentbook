@@ -12,30 +12,6 @@ function addLoadedClass(image) { // Функция для добавления �
 lazyImages.forEach(addLoadedClass); // Перебираем все изображения и вызываем функцию addLoadedClass для каждого
 
 /* === */
-/*
-document.addEventListener('DOMContentLoaded', () => {
-   // Function to redirect to the correct URL if needed
-   function handleRedirect() {
-      const currentPath = window.location.pathname;
-      const isBookPage = currentPath.startsWith('/book/page/');
-
-      if (isBookPage) {
-         // Do nothing as the URL is already correct
-         return;
-      }
-
-      // Example: If the path is `/book` but there's no `page/` in it, default to page 1
-      if (currentPath === '/book') {
-         window.location.replace('/book/page/1');
-      }
-   }
-
-   // Listen to the popstate event to handle back/forward navigation
-   window.addEventListener('popstate', handleRedirect);
-
-   // Call the function on initial load
-   handleRedirect();
-});*/
 
 const bookSlider = document.querySelector('.book-slider');
 if (bookSlider) {
@@ -43,6 +19,9 @@ if (bookSlider) {
       navigation: {
          nextEl: '.swiper-button-next',
          prevEl: '.swiper-button-prev',
+      },
+      hashNavigation: {
+         watchState: true,
       },
       watchOverflow: true,
       spaceBetween: 40,
@@ -53,7 +32,7 @@ if (bookSlider) {
       preloadImages: false,
       lazy: {
          loadOnTransitionStart: false,
-         loadPrevNext: false,
+         loadPrevNext: true,
       },
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
@@ -62,7 +41,14 @@ if (bookSlider) {
       on: {
          slideChangeTransitionEnd: function () {
             // Удаляем класс zoomed со всех слайдов
-            swiper.slides.forEach(slide => slide.classList.remove('zoomed'));
+
+            if (swiper) {
+               swiper.slides.forEach(slide => {
+                  if (slide) {
+                     slide.classList.remove('zoomed');
+                  }
+               })
+            }
 
             var activeSlide = this.slides[this.activeIndex];
             var imageElement = activeSlide.querySelector('img');
@@ -166,7 +152,7 @@ if (bookSlider) {
    // Инициализируем WZoom для первого слайда при загрузке страницы
    document.addEventListener('DOMContentLoaded', function () {
       var firstSlide = swiper.slides[swiper.activeIndex];
-      var imageElement = firstSlide.querySelector('img');
+      var imageElement = firstSlide.querySelector('img[loading="lazy"]');
       if (imageElement) {
          init(imageElement);
       }
