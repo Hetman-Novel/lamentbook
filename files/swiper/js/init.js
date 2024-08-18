@@ -51,7 +51,7 @@ if (bookSlider) {
             }
 
             var activeSlide = this.slides[this.activeIndex];
-            var imageElement = activeSlide.querySelector('img');
+            var imageElement = activeSlide.querySelector('img[loading="lazy"]');
 
             if (wzoom) {
                wzoom.destroy(); // Уничтожаем предыдущий экземпляр WZoom
