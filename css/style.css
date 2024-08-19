@@ -1087,7 +1087,7 @@ html.est .footer span.est {
   transition: opacity 0.3s;
   top: 20px;
   width: calc(100% - 40px);
-  z-index: 2;
+  z-index: 3;
   /*
   .hidden-book-text {
      background-color: rgba(255, 255, 255, 0.8);
@@ -1126,6 +1126,11 @@ html.est .footer span.est {
   height: 100%;
   padding: 20px 10px 20px 20px;
   width: 48%;
+}
+
+.book-page__book-text .column.no-content {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .book-page__book-text .wrap-text {
