@@ -987,7 +987,7 @@ html.est .footer span.est {
   max-width: 22%;
   pointer-events: all;
   position: absolute;
-  width: 120px;
+  width: 218px;
   z-index: 3;
 }
 
@@ -1125,7 +1125,7 @@ html.est .footer span.est {
   flex-direction: column;
   height: 100%;
   padding: 20px 10px 20px 20px;
-  width: 48%;
+  width: 49%;
 }
 
 .book-page__book-text .column.no-content {
