@@ -158,6 +158,35 @@ if (bookSlider) {
       }
    });
 }
+document.addEventListener("DOMContentLoaded", function() {
+   // Добавление класса video-uploaded при загрузке видео
+   const videos = document.querySelectorAll("video");
+   videos.forEach(video => {
+       video.addEventListener('loadeddata', function() {
+           video.parentElement.classList.add('video-uploaded');
+       });
+   });
+
+   // Удаление класса video-uploaded при клике на next/prev кнопки
+   /*
+   const swiperButtons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
+   swiperButtons.forEach(button => {
+       button.addEventListener('click', function() {
+           const slides = document.querySelectorAll('.swiper-slide');
+           slides.forEach(slide => {
+               slide.classList.remove('video-uploaded');
+           });
+
+           // Восстановление класса video-uploaded для активного слайдера, если в нем загружено видео
+           const activeSlide = document.querySelector('.swiper-slide-active');
+           const videoInActiveSlide = activeSlide.querySelector('video');
+           if (videoInActiveSlide && videoInActiveSlide.readyState >= 3) { // Проверка, загружено ли видео
+               activeSlide.classList.add('video-uploaded');
+           }
+       });
+   });
+   */
+});
 
 const aboutProjectSlider = document.querySelector('.about-project-slider')
 if (aboutProjectSlider) {
