@@ -955,6 +955,16 @@ html.est .footer span.est {
   pointer-events: all !important;
 }
 
+.book-page .swiper-slide.swiper-slide-active.video-uploaded .swiper-lazy-preloader,
+.book-page .swiper-slide.swiper-slide-active.video-uploaded img {
+  display: none;
+}
+
+.book-page .swiper-slide.swiper-slide-active.video-uploaded video {
+  opacity: 1;
+  position: static;
+}
+
 .book-page .swiper-slide:not(.zoomed) {
   pointer-events: none;
 }
@@ -972,7 +982,6 @@ html.est .footer span.est {
   max-height: 100% !important;
   margin: auto 50px;
   width: auto;
-  cursor: grab;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -980,6 +989,13 @@ html.est .footer span.est {
 
 .book-page .swiper-slide img:active {
   cursor: grabbing;
+}
+
+.book-page .swiper-slide video {
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .book-page .swiper-slide .wrap-bookmark {
