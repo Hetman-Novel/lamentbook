@@ -38,7 +38,7 @@ if (bookSlider) {
       watchSlidesVisibility: true,
       simulateTouch: false,
       allowTouchMove: false,
-      on: {
+      /*on: {
          slideChangeTransitionEnd: function () {
             // Удаляем класс zoomed со всех слайдов
 
@@ -65,9 +65,10 @@ if (bookSlider) {
                };
             }
          }
-      }
+      }*/
    });
 
+   /*
    var wzoom = null; // Переменная для хранения экземпляра WZoom
 
    function init(imageElement) {
@@ -148,8 +149,10 @@ if (bookSlider) {
          }
       });
    }
+   */
 
    // Инициализируем WZoom для первого слайда при загрузке страницы
+   /*
    document.addEventListener('DOMContentLoaded', function () {
       var firstSlide = swiper.slides[swiper.activeIndex];
       var imageElement = firstSlide.querySelector('img[loading="lazy"]');
@@ -157,35 +160,42 @@ if (bookSlider) {
          init(imageElement);
       }
    });
+   */
 }
 document.addEventListener("DOMContentLoaded", function() {
-   // Добавление класса video-uploaded при загрузке видео
+   /*
    const videos = document.querySelectorAll("video");
    videos.forEach(video => {
-       video.addEventListener('loadeddata', function() {
-           video.parentElement.classList.add('video-uploaded');
-       });
-   });
-
-   // Удаление класса video-uploaded при клике на next/prev кнопки
-   /*
-   const swiperButtons = document.querySelectorAll('.swiper-button-next, .swiper-button-prev');
-   swiperButtons.forEach(button => {
-       button.addEventListener('click', function() {
-           const slides = document.querySelectorAll('.swiper-slide');
-           slides.forEach(slide => {
-               slide.classList.remove('video-uploaded');
-           });
-
-           // Восстановление класса video-uploaded для активного слайдера, если в нем загружено видео
-           const activeSlide = document.querySelector('.swiper-slide-active');
-           const videoInActiveSlide = activeSlide.querySelector('video');
-           if (videoInActiveSlide && videoInActiveSlide.readyState >= 3) { // Проверка, загружено ли видео
-               activeSlide.classList.add('video-uploaded');
-           }
-       });
+      video.addEventListener('loadeddata', function() {
+         video.parentElement.classList.add('video-uploaded');
+      });
    });
    */
+   
+   // Функция для управления видео
+   /*
+   function manageVideos() {
+      const swiperSlides = document.querySelectorAll('.swiper-slide');
+
+      swiperSlides.forEach(slide => {
+         const videos = slide.querySelectorAll('video');
+         videos.forEach(video => {
+            if (!slide.classList.contains('swiper-slide-active')) {
+               video.pause(); // Останавливаем видео
+               video.currentTime = 0; // Сбрасываем время воспроизведения в начало
+            } else {
+               video.play(); // Запускаем видео, если слайд активен
+            }
+         });
+      });
+   }
+   */
+
+   // Привязываем функцию к событию изменения слайда
+   //document.querySelector('.swiper-container').addEventListener('slideChangeTransitionEnd', manageVideos);
+
+   // Выполняем функцию для начального состояния
+   //manageVideos();
 });
 
 const aboutProjectSlider = document.querySelector('.about-project-slider')
